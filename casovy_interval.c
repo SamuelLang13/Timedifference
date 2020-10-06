@@ -14,11 +14,22 @@ int main(void)
     int cas2ms;
     int sum2;
 
+    int diffms;
+    int diffs;
+    int diffm;
+    int diffh;
+
+    int totalms;
+    int totals;
+    int totalm;
+    int totalh;
+
     printf("Zadejte cas t1:\n");
     if(scanf(" %d : %d : %d , %d",&cas1h,&cas1m,&cas1s,&cas1ms)==4)
     {
         if(cas1h>=0 && cas1h<24 && cas1m>=0 && cas1m<60 && cas1s>=0 && cas1s<60 && cas1ms>=0 && cas1ms<1000)
         {
+            
             sum1=cas1h*3600000+cas1m*60000+cas1s*1000+cas1ms;
             printf("Spravny vstup.\n");
             printf("Zadejte cas t2:\n");
@@ -35,7 +46,12 @@ int main(void)
                     }
                     else
                     {
-                        printf("OK\n");
+                        if(cas1ms<10 || cas1ms<10)
+                        {
+                            cas1ms=cas1ms*100;
+                            cas2ms=cas2ms*100;
+                        }    
+                        
                     }
                     
                 }
