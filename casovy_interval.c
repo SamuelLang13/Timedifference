@@ -56,7 +56,7 @@ int main(void)
                         sum1=cas2h*3600000+cas2m*60000+cas2s*1000+cas2ms;
                 
                     }
-                    else if(cas2ms>=10)
+                    else 
                     {
                         sum2=cas2h*3600000+cas2m*60000+cas2s*1000+cas2ms;
                 
@@ -67,7 +67,7 @@ int main(void)
                         printf("Nespravny vstup\n");
                         return 1;
                     }
-                    else
+                    else if(sum1<sum2)
                     {
                         printf("Spravny vstup.\n");
 
@@ -75,20 +75,22 @@ int main(void)
                         diffs=cas2s-cas1s;
                         diffm=cas2m-cas1m;
                         diffh=cas2h-cas1h;
+                        
 
-                        if(diffms<=0)
+                        if(diffms<0)
                         {
-                            diffms=1000-diffms;
+                            diffms=1000+(diffms);
                             diffs--;
+                            
                         }
-                        else if(diffs<=0)
+                        if(diffs<0)
                         {
-                            diffs=60-diffs;
+                            diffs=60+(diffs);
                             diffm--;
                         }
-                        else if(diffm<=0)
+                        if(diffm<0)
                         {
-                            diffm=60-diffm;
+                            diffm=60+(diffm);
                             diffh--;
                         }
 
@@ -96,12 +98,18 @@ int main(void)
                         totals=diffs;
                         totalm=diffm;
                         totalh=diffh;
-                        printf("Doba: %d:%d:%d,%d",totalh,totalm,totals,totalms);
+                        printf("Doba: %d:%d:%d,%03d\n",totalh,totalm,totals,totalms);
                         
                         
                         
                         
                         
+                    }
+                    else if(sum1=sum2)
+                    {
+                        totalh=00;
+                        
+                        printf("Doba: ")
                     }
                     
                 }
